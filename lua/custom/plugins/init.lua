@@ -2,4 +2,15 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  'Mofiqul/vscode.nvim',
+  config = function()
+    require('vscode').setup {
+      italic_comments = false,
+      underline_links = true,
+      terminal_colors = true,
+    }
+
+    vim.cmd.colorscheme 'vscode'
+  end,
+}
