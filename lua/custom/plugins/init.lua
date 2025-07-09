@@ -3,14 +3,9 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  'Mofiqul/vscode.nvim',
-  config = function()
-    require('vscode').setup {
-      italic_comments = false,
-      underline_links = true,
-      terminal_colors = true,
-    }
-
-    vim.cmd.colorscheme 'vscode'
-  end,
+  require 'custom.plugins.vscode-nvim',
+  require 'custom.plugins.bufferline',
+  require 'custom.plugins.vim-be-good', -- in empty file run :VimBeGood
+  require 'custom.plugins.harpoon2',
+  require 'custom.plugins.jp-terminal',
 }
