@@ -688,8 +688,9 @@ require('lazy').setup({
         intelephense = {},
         html = {},
         cssls = {},
-        htmlhint = {},
-        stylelint = {},
+        docker_compose_language_service = {},
+        dockerls = {},
+        tombi = {},
         --
 
         lua_ls = {
@@ -778,18 +779,9 @@ require('lazy').setup({
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
-        html = { 'htmlhint' },
-        css = { 'stylelint' },
 
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      },
-      formatters = {
-        htmlhint = {
-          command = 'htmlhint',
-          args = { '--stdin' },
-          stdin = true,
-        },
       },
     },
   },
@@ -976,6 +968,7 @@ require('lazy').setup({
         'python',
         'c_sharp',
         'javascript',
+        'php',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
@@ -1006,7 +999,7 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
