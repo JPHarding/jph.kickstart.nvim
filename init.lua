@@ -681,17 +681,31 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
+
+        -- LSPs
         ts_ls = {},
-        ruff = {},
         csharp_ls = {},
-        debugpy = {},
         intelephense = {},
         html = {},
         cssls = {},
         docker_compose_language_service = {},
         dockerls = {},
+
+        -- Formatters
+        ruff = {},
+        prettierd = {},
+        prettier = {},
+        pint = {},
+
+        -- linters
         tombi = {},
-        --
+        ['markdownlint-cli2'] = {},
+        htmlhint = {},
+        eslint_d = {},
+        phpstan = {},
+
+        -- debuggers
+        debugpy = {},
 
         lua_ls = {
           -- cmd = { ... },
@@ -770,7 +784,7 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 5000,
             lsp_format = 'fallback',
           }
         end
@@ -781,7 +795,17 @@ require('lazy').setup({
         python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
 
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        css = { 'prettierd', 'prettier', stop_after_first = true },
+        html = { 'prettierd', 'prettier', stop_after_first = true },
+        json = { 'prettierd', 'prettier', stop_after_first = true },
+        markdown = { 'prettierd', 'prettier', stop_after_first = true },
+        yaml = { 'prettierd', 'prettier', stop_after_first = true },
+        graphql = { 'prettierd', 'prettier', stop_after_first = true },
+        php = { 'pint' }, -- https://laravel.com/docs/12.x/pint
       },
     },
   },
@@ -958,6 +982,7 @@ require('lazy').setup({
         'c',
         'diff',
         'html',
+        'css',
         'lua',
         'luadoc',
         'markdown',
@@ -969,6 +994,17 @@ require('lazy').setup({
         'c_sharp',
         'javascript',
         'php',
+        'php_only',
+        'phpdoc',
+        'json',
+        'json5',
+        'razor',
+        'typescript',
+        'vue',
+        'xml',
+        'csv',
+        'dockerfile',
+        'powershell',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
@@ -977,9 +1013,9 @@ require('lazy').setup({
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
+        additional_vim_regex_highlighting = { 'ruby', 'php' },
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true, disable = { 'ruby', 'php' } },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -1000,8 +1036,8 @@ require('lazy').setup({
   --
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 

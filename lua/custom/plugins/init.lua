@@ -8,4 +8,5 @@ return {
   require 'custom.plugins.vim-be-good', -- in empty file run :VimBeGood
   require 'custom.plugins.harpoon2',
   require 'custom.plugins.jp-terminal',
+  require('custom.indentation').setup(),
 }
