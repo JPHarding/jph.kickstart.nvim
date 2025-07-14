@@ -684,6 +684,14 @@ require('lazy').setup({
 
         -- LSPs
         ts_ls = {},
+        jsonls = {
+          settings = {
+            json = {
+              schemas = require('schemastore').json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        },
         csharp_ls = {},
         intelephense = {},
         html = {},

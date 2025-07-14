@@ -1,4 +1,6 @@
 return {
+  -- linting help.
+  -- eslint: https://medium.com/@capablecontents/linting-with-chrome-extensions-using-eslint-41e1d9a3b89a
 
   { -- Linting
     'mfussenegger/nvim-lint',
