@@ -84,6 +84,9 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
+-- add rounded borders to all of the windows - JP added this, remove if trash.
+vim.o.winborder = 'rounded'
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -893,13 +896,21 @@ require('lazy').setup({
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        documentation = {
+          auto_show = false,
+          auto_show_delay_ms = 500,
+        },
+        ghost_text = { enabled = true },
         menu = {
+          border = 'rounded',
+          winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
           draw = {
             columns = {
-              { 'kind_icon', 'kind', 'label', gap = 1 },
+              { 'label', 'label_description', gap = 1 },
+              { 'kind_icon', 'kind', gap = 1 },
               { 'source_name' },
             },
+            treesitter = { 'lsp' },
           },
         },
       },
