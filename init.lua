@@ -695,6 +695,7 @@ require('lazy').setup({
         csharp_ls = {},
         intelephense = {},
         html = {},
+        emmet_language_server = {},
         cssls = {},
         docker_compose_language_service = {},
         dockerls = {},
@@ -839,13 +840,14 @@ require('lazy').setup({
         dependencies = {
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
+          --    Default snipits are enabled. Only see link abount framwork specific snipits as they are disabled.
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
         },
         opts = {},
       },
@@ -892,6 +894,14 @@ require('lazy').setup({
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        menu = {
+          draw = {
+            columns = {
+              { 'kind_icon', 'kind', 'label', gap = 1 },
+              { 'source_name' },
+            },
+          },
+        },
       },
 
       sources = {

@@ -9,4 +9,6 @@ return {
   require 'custom.plugins.harpoon2',
   require 'custom.plugins.jp-terminal',
   require('custom.indentation').setup(),
+  require 'custom.plugins.SchemaStore',
+  require 'custom.plugins.nvim-ts-autotag',
 }
