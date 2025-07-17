@@ -3,8 +3,8 @@ local M = {}
 
 -- global default
 M.default = {
-  tabstop = 4,
-  shiftwidth = 4,
+  tabstop = 2,
+  shiftwidth = 2,
   expandtab = true,
 }
 
