@@ -695,7 +695,9 @@ require('lazy').setup({
         csharp_ls = {},
         intelephense = {},
         html = {},
-        emmet_language_server = {},
+        emmet_language_server = {
+          filetypes = { 'php' },
+        },
         cssls = {},
         docker_compose_language_service = {},
         dockerls = {},
