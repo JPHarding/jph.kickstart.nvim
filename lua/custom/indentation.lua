@@ -3,8 +3,8 @@ local M = {}
 
 -- global default
 M.default = {
-  tabstop = 2,
-  shiftwidth = 2,
+  tabstop = 4,
+  shiftwidth = 4,
   expandtab = true,
 }
 
@@ -52,19 +52,6 @@ function M.setup()
       end,
     })
   end
-
-  -- catch-all fallback for unspecified filetypes
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = '*',
-    callback = function()
-      local ts = vim.bo.tabstop
-      if ts ~= 2 and ts ~= 8 then
-        vim.bo.tabstop = M.default.tabstop
-        vim.bo.shiftwidth = M.default.shiftwidth
-        vim.bo.expandtab = M.default.expandtab
-      end
-    end,
-  })
 end
 
 return M
