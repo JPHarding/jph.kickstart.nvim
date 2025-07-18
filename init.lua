@@ -696,7 +696,10 @@ require('lazy').setup({
         intelephense = {},
         html = {},
         emmet_language_server = {
-          filetypes = { 'php' },
+          filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'pug', 'typescriptreact', 'php' },
+          init_options = {
+            includeLanguages = { php = 'html' },
+          },
         },
         cssls = {},
         docker_compose_language_service = {},
@@ -767,6 +770,15 @@ require('lazy').setup({
           end,
         },
       }
+      -- NOTE: The below for loop was required to set options on emmet lang server. for some reason it does nothing without this
+      -- fix is found in this issue; https://github.com/nvim-lua/kickstart.nvim/pull/1475/files
+      -- Installed LSPs are configured and enabled automatically with mason-lspconfig
+      -- The loop below is for overriding the default configuration of LSPs with the ones in the servers table
+      for server_name, config in pairs(servers) do
+        vim.lsp.config(server_name, config)
+      end
+      -- NOTE: Some servers may require an old setup until they are updated. For the full list refer here: https://github.com/neovim/nvim-lspconfig/issues/3705
+      -- These servers will have to be manually set up with require("lspconfig").server_name.setup{}
     end,
   },
 
