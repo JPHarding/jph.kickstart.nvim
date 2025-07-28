@@ -833,7 +833,7 @@ require('lazy').setup({
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         yaml = { 'prettierd', 'prettier', stop_after_first = true },
         graphql = { 'prettierd', 'prettier', stop_after_first = true },
-        php = { 'pint' }, -- https://laravel.com/docs/12.x/pint
+        --php = { 'pint', lsp_format = 'last' }, -- https://laravel.com/docs/12.x/pint
       },
     },
   },
