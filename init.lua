@@ -699,6 +699,7 @@ require('lazy').setup({
         },
         csharp_ls = {},
         intelephense = {},
+        phpactor = {},
         html = {},
         emmet_language_server = {
           filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'pug', 'typescriptreact', 'php' },
