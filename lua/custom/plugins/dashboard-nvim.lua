@@ -34,6 +34,12 @@ return {
           { desc = 'Telescope Search Recent', icon = ' ', action = 'Telescope oldfiles', key = 'o' },
           { desc = 'Open Har[p]oon', icon = ' ', action = 'Telescope harpoon marks', key = 'p' },
         },
+        footer = function()
+          local stats = require('lazy').stats()
+          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+          local nvim_version = ' Neovim Version: ' .. tostring(vim.version())
+          return { '⚡ Neovim loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms', nvim_version }
+        end,
       },
     }
   end,
