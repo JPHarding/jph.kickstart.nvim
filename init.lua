@@ -697,9 +697,37 @@ require('lazy').setup({
             },
           },
         },
+        yamlls = {
+          settings = {
+            yaml = {
+              schemaStore = {
+                -- You must disable built-in schemaStore support if you want to use
+                -- this plugin and its advanced options like `ignore`.
+                enable = false,
+                -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                url = '',
+              },
+              schemas = require('schemastore').yaml.schemas(),
+            },
+          },
+        },
         csharp_ls = {},
-        intelephense = {},
-        phpactor = {},
+        intelephense = {
+          settings = {
+            intelephense = {
+              files = {
+                maxSize = 2000000, -- optional: skip very large files
+                exclude = {
+                  '**/vendor/**', -- composer packages
+                  '**/node_modules/**', -- npm packages
+                  '**/storage/**',
+                  '**/public/**',
+                  '**/.git/**',
+                },
+              },
+            },
+          },
+        },
         html = {},
         emmet_language_server = {
           filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'pug', 'typescriptreact', 'php' },
