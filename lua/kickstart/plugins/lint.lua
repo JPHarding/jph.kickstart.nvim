@@ -25,6 +25,15 @@ return {
         '--',
       }
 
+      local phpstan = lint.linters.phpstan
+      phpstan.args = {
+        'analyze',
+        '--level',
+        'max',
+        '--error-format=json',
+        '--no-progress',
+      }
+
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}

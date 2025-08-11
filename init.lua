@@ -720,8 +720,6 @@ require('lazy').setup({
                 exclude = {
                   '**/vendor/**', -- composer packages
                   '**/node_modules/**', -- npm packages
-                  '**/storage/**',
-                  '**/public/**',
                   '**/.git/**',
                 },
               },
@@ -738,6 +736,7 @@ require('lazy').setup({
         cssls = {},
         docker_compose_language_service = {},
         dockerls = {},
+        ['powershell-editor-services'] = {},
 
         -- Formatters
         ruff = {},
