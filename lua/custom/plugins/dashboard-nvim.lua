@@ -33,6 +33,30 @@ return {
           { desc = 'Telescope Resume', icon = ' ', action = 'Telescope resume', key = 'r' },
           { desc = 'Telescope Search Recent', icon = ' ', action = 'Telescope oldfiles', key = 'o' },
           { desc = 'Open Har[p]oon', icon = ' ', action = 'Telescope harpoon marks', key = 'p' },
+          {
+            desc = 'Load last session',
+            icon = '💾 ',
+            action = function()
+              require('persistence').load { last = true }
+            end,
+            key = 'l',
+          },
+          {
+            desc = 'Load dir session',
+            icon = '💾 ',
+            action = function()
+              require('persistence').load()
+            end,
+            key = 'd',
+          },
+          {
+            desc = 'Select Session',
+            icon = '💾 ',
+            action = function()
+              require('persistence').select()
+            end,
+            key = 's',
+          },
         },
         footer = function()
           local stats = require('lazy').stats()
