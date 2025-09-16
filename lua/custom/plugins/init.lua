@@ -11,4 +11,5 @@ return {
   require 'custom.plugins.SchemaStore',
   require 'custom.plugins.nvim-ts-autotag',
   require 'custom.plugins.telescope-undo',
+  require 'custom.plugins.neovim-tips',
 }

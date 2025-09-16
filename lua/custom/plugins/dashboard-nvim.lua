@@ -39,7 +39,7 @@ return {
             action = function()
               require('persistence').load { last = true }
             end,
-            key = 'l',
+            key = 'L',
           },
           {
             desc = 'Load dir session',
