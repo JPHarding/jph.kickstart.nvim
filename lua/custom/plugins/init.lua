@@ -13,4 +13,5 @@ return {
   require 'custom.plugins.telescope-undo',
   require 'custom.plugins.neovim-tips',
   require 'custom.plugins.nvim-colorizer',
+  require 'custom.plugins.flash-nvim',
 }
