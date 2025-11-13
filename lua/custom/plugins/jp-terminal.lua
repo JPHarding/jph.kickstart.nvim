@@ -42,5 +42,5 @@ return {
     vim.api.nvim_buf_set_name(0, term_buf_name)
     vim.api.nvim_set_option_value('buflisted', false, { scope = 'local' })
     vim.bo.filetype = 'terminal'
-  end, { desc = 'Toggle Woot Terminal' }),
+  end, { desc = 'Toggle Terminal' }),
 }
