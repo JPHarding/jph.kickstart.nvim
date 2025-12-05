@@ -37,7 +37,11 @@ return {
     end
 
     -- Otherwise, create a new terminal buffer
-    vim.cmd 'split term://pwsh.exe'
+    if package.config:sub(1, 1) == '\\' then
+      vim.cmd 'split term://pwsh.exe'
+    elseif package.config:sub(1, 1) == '/' then
+      vim.cmd 'split term://bash'
+    end
     vim.cmd 'resize 15'
     vim.api.nvim_buf_set_name(0, term_buf_name)
     vim.api.nvim_set_option_value('buflisted', false, { scope = 'local' })
