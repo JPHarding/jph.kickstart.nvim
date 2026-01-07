@@ -20,6 +20,7 @@ return {
           { desc = ' Update Lazy', icon = '󰒲', action = 'Lazy update', key = 'u' },
           { desc = ' Lazy.Nvim', icon = '󰒲', action = 'Lazy', key = 'l' },
           { desc = ' Mason', icon = 'M', action = 'Mason', key = 'm' },
+          { desc = 'New [A]buffer', icon = '󰈙 ', action = 'enew', key = 'a' },
           {
             desc = 'Telescope Search Neovim Files',
             icon = ' ',
