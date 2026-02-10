@@ -721,7 +721,6 @@ require('lazy').setup({
               files = {
                 maxSize = 2000000, -- optional: skip very large files
                 exclude = {
-                  '**/vendor/**', -- composer packages
                   '**/node_modules/**', -- npm packages
                   '**/.git/**',
                 },
