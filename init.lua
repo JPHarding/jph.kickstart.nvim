@@ -200,8 +200,8 @@ vim.o.termguicolors = true
 -- Future note:
 -- If you ever move the venv, update the path here.
 -- ============================================================================
-if vim.loop.os_uname().sysname == "Linux" then
-  vim.g.python3_host_prog = vim.fn.expand("~/.venvs/nvim/bin/python")
+if vim.loop.os_uname().sysname == 'Linux' then
+  vim.g.python3_host_prog = vim.fn.expand '~/.venvs/nvim/bin/python'
 end
 
 -- [[ Basic Keymaps ]]
@@ -336,7 +336,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -384,7 +384,7 @@ require('lazy').setup({
       spec = {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk',        mode = { 'n', 'v' } },
+        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>n', group = '[N]eovim Tips Menu' },
       },
     },
@@ -418,7 +418,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -526,7 +526,7 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim',    opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -750,7 +750,7 @@ require('lazy').setup({
           settings = {
             intelephense = {
               files = {
-                maxSize = 2000000,      -- optional: skip very large files
+                maxSize = 2000000, -- optional: skip very large files
                 exclude = {
                   '**/node_modules/**', -- npm packages
                   '**/.git/**',
@@ -982,8 +982,8 @@ require('lazy').setup({
           winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
           draw = {
             columns = {
-              { 'label',      'label_description', gap = 1 },
-              { 'kind_icon',  'kind',              gap = 1 },
+              { 'label', 'label_description', gap = 1 },
+              { 'kind_icon', 'kind', gap = 1 },
               { 'source_name' },
             },
             treesitter = { 'lsp' },
@@ -1079,7 +1079,7 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    main = 'nvim-treesitter.config', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = {
