@@ -34,6 +34,7 @@ return {
           { desc = 'Telescope Resume', icon = ' ', action = 'Telescope resume', key = 'r' },
           { desc = 'Telescope Search Recent', icon = ' ', action = 'Telescope oldfiles', key = 'o' },
           { desc = 'Open Har[p]oon', icon = ' ', action = 'Telescope harpoon marks', key = 'p' },
+          { desc = 'Play VimBeGood', icon = ' ', action = 'VimBeGood', key = 'v' },
           {
             desc = 'Load last session',
             icon = '💾 ',

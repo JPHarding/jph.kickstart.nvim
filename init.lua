@@ -174,7 +174,8 @@ vim.o.expandtab = true
 vim.o.termguicolors = true
 
 -- NOTE: JP's custom stuff
-
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 -- ============================================================================
 -- Python provider configuration for Neovim
 --
@@ -205,6 +206,8 @@ if vim.loop.os_uname().sysname == 'Linux' then
 else
   vim.g.python3_host_prog = vim.fn.expand '$LOCALAPPDATA/nvim/py/.venv/Scripts/python.exe'
 end
+
+-- NOTE: end JP's custom stuff
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
