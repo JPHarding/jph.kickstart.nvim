@@ -687,7 +687,7 @@ require('lazy').setup({
           },
         },
         ['html-lsp'] = {},
-        ['emmet-ls'] = {
+        ['emmet-language-server'] = {
           filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'pug', 'typescriptreact', 'php' },
           init_options = {
             includeLanguages = { php = 'html' },
