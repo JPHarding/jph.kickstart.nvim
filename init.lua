@@ -648,8 +648,8 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
 
         -- LSPs
-        ts_ls = {},
-        jsonls = {
+        ['typescript-language-server'] = {},
+        ['json-lsp'] = {
           settings = {
             json = {
               schemas = require('schemastore').json.schemas(),
@@ -657,7 +657,7 @@ require('lazy').setup({
             },
           },
         },
-        yamlls = {
+        ['yaml-language-server'] = {
           settings = {
             yaml = {
               schemaStore = {
@@ -671,7 +671,7 @@ require('lazy').setup({
             },
           },
         },
-        csharp_ls = {},
+        ['csharp-language-server'] = {},
         intelephense = {
           settings = {
             intelephense = {
@@ -685,16 +685,15 @@ require('lazy').setup({
             },
           },
         },
-        html = {},
-        emmet_language_server = {
+        ['html-lsp'] = {},
+        ['emmet-ls'] = {
           filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'pug', 'typescriptreact', 'php' },
           init_options = {
             includeLanguages = { php = 'html' },
           },
         },
-        cssls = {},
-        docker_compose_language_service = {},
-        dockerls = {},
+        ['css-lsp'] = {},
+        ['docker-language-server'] = {},
         ['powershell-editor-services'] = {},
 
         -- Formatters
@@ -713,7 +712,7 @@ require('lazy').setup({
         -- debuggers
         debugpy = {},
 
-        lua_ls = {
+        ['lua-language-server'] = {
           -- cmd = { ... },
           -- filetypes = { ... },
           -- capabilities = {},
@@ -738,7 +737,7 @@ require('lazy').setup({
       -- You can press `g?` for help in this menu.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'lua_ls', -- Lua Language server
+        'lua-language-server', -- Lua Language server
         'stylua', -- Used to format Lua code
         -- You can add other tools here that you want Mason to install
       })
@@ -752,7 +751,7 @@ require('lazy').setup({
       end
 
       -- Special Lua Config, as recommended by neovim help docs
-      vim.lsp.config('lua_ls', {
+      vim.lsp.config('lua-language-server', {
         on_init = function(client)
           if client.workspace_folders then
             local path = client.workspace_folders[1].name
@@ -775,14 +774,7 @@ require('lazy').setup({
         settings = {
           Lua = {},
         },
-      }
-      -- NOTE: The below for loop was required to set options on emmet lang server. for some reason it does nothing without this
-      -- fix is found in this issue; https://github.com/nvim-lua/kickstart.nvim/pull/1475/files
-      -- Installed LSPs are configured and enabled automatically with mason-lspconfig
-      -- The loop below is for overriding the default configuration of LSPs with the ones in the servers table
-      for server_name, config in pairs(servers) do
-        vim.lsp.config(server_name, config)
-      end
+      })
       -- NOTE: Some servers may require an old setup until they are updated. For the full list refer here: https://github.com/neovim/nvim-lspconfig/issues/3705
       -- These servers will have to be manually set up with require("lspconfig").server_name.setup{}
     end,
@@ -860,9 +852,7 @@ require('lazy').setup({
           --    https://github.com/rafamadriz/friendly-snippets
           {
             'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
+            config = function() require('luasnip.loaders.from_vscode').lazy_load() end,
           },
         },
         opts = {},
@@ -1010,7 +1000,8 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      local filetypes = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'php', 'blade', 'python', 'javascript' }
+      local filetypes =
+        { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'php', 'blade', 'python', 'javascript' }
       require('nvim-treesitter').install(filetypes)
       vim.api.nvim_create_autocmd('FileType', {
         pattern = filetypes,
