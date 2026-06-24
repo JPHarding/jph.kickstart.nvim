@@ -1,5 +1,7 @@
+-- To swap to Magento theme: set enabled = false here, set enabled = true in magento-theme.lua
 return {
   'Mofiqul/vscode.nvim',
+  enabled = true,
   config = function()
     require('vscode').setup {
       italic_comments = false,
