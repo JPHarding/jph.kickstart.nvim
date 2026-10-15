@@ -1,19 +1,18 @@
 -- To swap to Magento theme: set enabled = false here, set enabled = true in magento-theme.lua
-return {
-  'Mofiqul/vscode.nvim',
-  enabled = true,
-  config = function()
-    require('vscode').setup {
-      italic_comments = false,
-      underline_links = true,
-      terminal_colors = true,
+local enabled = true
+if not enabled then return end
 
-      group_overrides = {
-        NormalFloat = { bg = '#393939' },
-        FloatBorder = { bg = '#393939' },
-      },
-    }
+vim.pack.add { 'https://github.com/Mofiqul/vscode.nvim' }
 
-    vim.cmd.colorscheme 'vscode'
-  end,
+require('vscode').setup {
+  italic_comments = false,
+  underline_links = true,
+  terminal_colors = true,
+
+  group_overrides = {
+    NormalFloat = { bg = '#393939' },
+    FloatBorder = { bg = '#393939' },
+  },
 }
+
+vim.cmd.colorscheme 'vscode'

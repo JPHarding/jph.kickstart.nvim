@@ -1,26 +1,10 @@
-return {
-  'barrett-ruth/live-server.nvim',
-  build = 'npm install -g live-server',
-  cmd = { 'LiveServerStart', 'LiveServerStop' },
+-- live-server.nvim v0.2+ is pure Lua (no npm `live-server` needed, no `setup()` call).
+-- Optional config, must be set before the plugin loads. See `:help live-server-config`
+-- vim.g.live_server = {
+--   port = 5500,
+--   browser = true,
+-- }
 
-  keys = {
-    {
-      '<leader>tl',
-      function()
-        if vim.g.live_server_running then
-          vim.cmd 'LiveServerStop'
-          vim.g.live_server_running = false
-        else
-          vim.cmd 'LiveServerStart'
-          vim.g.live_server_running = true
-        end
-      end,
-      desc = '[T]oggle [l]ive server',
-    },
-  },
+vim.pack.add { 'https://github.com/barrett-ruth/live-server.nvim' }
 
-  config = function()
-    -- same thing as config = true
-    require('live-server').setup()
-  end,
-}
+vim.keymap.set('n', '<leader>tl', '<cmd>LiveServerToggle<CR>', { desc = '[T]oggle [l]ive server' })
